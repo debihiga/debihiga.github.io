@@ -1,3 +1,6 @@
+Deploy a React App as a Github User Page with Yarn
+https://dev.to/javascripterika/deploy-a-react-app-as-a-github-user-page-with-yarn-3fka
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
