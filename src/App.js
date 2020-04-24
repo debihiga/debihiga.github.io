@@ -1,13 +1,13 @@
 import './App.css';
 
+import AppBarHidden from './components/AppBarHidden';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
-import DrawerResponsive from './DrawerResponsive';
+import DrawerResponsive from './components/DrawerResponsive';
 import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Toolbar from '@material-ui/core/Toolbar';
 import Zoom from '@material-ui/core/Zoom';
 import logo from './logo.svg';
 import { makeStyles } from '@material-ui/core/styles';
@@ -54,7 +54,7 @@ function ScrollTop(props) {
   );
 }
 
-ScrollTop.propTypes = {
+ScrollTop.propTypes  = {
   children: PropTypes.element.isRequired,
   /**
    * Injected by the documentation to work in an iframe.
@@ -63,16 +63,28 @@ ScrollTop.propTypes = {
   window: PropTypes.func,
 };
 
+// TODO: Create a theme
+export const drawerWidth = 240;
+export const drawerBackgroundColor = '#252526';
+export const drawerH6Color = '#FFF';
+export const title = "Debi Higa";
+
 function App(props) {
 
   const classes = useStyles();
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
 
   return (
     <div className={classes.root}>
-      <DrawerResponsive title="Debi Higa" ></DrawerResponsive>
+      <DrawerResponsive handleDrawerToggle={handleDrawerToggle}
+                        mobileOpen={mobileOpen} />
       <main className={classes.content}>
-        <div className={classes.toolbar} />
-        <Toolbar id="back-to-top-anchor" />
+        <div id="back-to-top-anchor" />
+        <AppBarHidden handleDrawerToggle={handleDrawerToggle} />
         <Container>
           <Box my={2}>
             {[...new Array(12)]
@@ -85,11 +97,6 @@ function App(props) {
               .join('\n')}
           </Box>
         </Container>
-        <ScrollTop {...props}>
-          <Fab color="secondary" size="small" aria-label="scroll back to top">
-            <KeyboardArrowUpIcon />
-          </Fab>
-        </ScrollTop>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -104,7 +111,11 @@ function App(props) {
             Learn React
           </a>
         </header>
-
+        <ScrollTop {...props}>
+          <Fab color="secondary" size="small" aria-label="scroll back to top">
+            <KeyboardArrowUpIcon />
+          </Fab>
+        </ScrollTop>
       </main>
     </div>
   );
