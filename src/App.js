@@ -1,5 +1,7 @@
 import './App.css';
 
+import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
+
 import { AnchorBackToTop } from './components/ButtonScrollTop';
 import AppBarHidden from './components/AppBarHidden';
 import Box from '@material-ui/core/Box';
@@ -7,7 +9,6 @@ import ButtonScrollTop from './components/ButtonScrollTop';
 import Container from '@material-ui/core/Container';
 import DrawerResponsive from './components/DrawerResponsive';
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,9 +24,32 @@ const useStyles = makeStyles((theme) => ({
 
 // TODO: Create a theme
 export const drawerWidth = 240;
-export const drawerBackgroundColor = '#252526';
+// Used in DrawerResponsive and AppBarHidden
+export const drawerBackgroundColor = '#414450';
 export const drawerH6Color = '#FFF';
-export const title = "Debi Higa";
+export const title = "DEBI HIGA";
+/**
+ naranja: #ffcb6b
+azul: #7da3f3
+gris claro (flechita del menu) + el texto: #adadad 
+color del menu: #414450
+rosa: #ff79c6
+celeste claro: #8be9fd
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://fontawesome.com/icons/folder?style=solid"/>
+    <link rel="stylesheet" href="https://fontawesome.com/icons/folder?style=regular"/>
+    <link rel="stylesheet" href="https://fontawesome.com/icons/arrow-right?style=solid"/>
+
+ */
+
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: [
+      '"IBM Plex Mono", monospace',
+    ].join(','),
+  },
+});
 
 function App(props) {
 
@@ -37,29 +61,32 @@ function App(props) {
   };
 
   return (
-    <div className={classes.root}>
-      <DrawerResponsive handleDrawerToggle={handleDrawerToggle}
-                        mobileOpen={mobileOpen} />
-      <main className={classes.content}>
-        <div id={AnchorBackToTop} />
-        <AppBarHidden handleDrawerToggle={handleDrawerToggle} />
-        <Container>
-          <Box my={2}>
-            {[...new Array(30)]
-              .map(
-                () => `Cras mattis consectetur purus sit amet fermentum.
-  Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-  Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-  Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-              )
-              .join('\n')}
-          </Box>
-        </Container>
-        <ButtonScrollTop {...props}>
+    <ThemeProvider theme={theme}>
+      <div className={classes.root}>
+        <DrawerResponsive handleDrawerToggle={handleDrawerToggle}
+                          mobileOpen={mobileOpen} />
+        <main className={classes.content}>
+          <div id={AnchorBackToTop} />
+          <AppBarHidden handleDrawerToggle={handleDrawerToggle} />
+          <Container>
+            <Box my={2}>
+              {[...new Array(30)]
+                .map(
+                  () => `Cras mattis consectetur purus sit amet fermentum.
+    Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+    Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+    Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
+                )
+                .join('\n')}
+            </Box>
+          </Container>
+          <ButtonScrollTop {...props}>
 
-        </ButtonScrollTop>
-      </main>
-    </div>
+          </ButtonScrollTop>
+        </main>
+      </div>
+
+    </ThemeProvider>
   );
 }
 

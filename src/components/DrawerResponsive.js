@@ -4,6 +4,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Hidden from '@material-ui/core/Hidden';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import List from '@material-ui/core/List';
@@ -15,6 +16,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Toolbar } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
+import { faFolder } from '@fortawesome/free-regular-svg-icons'
 
 const useStyles = makeStyles((theme) => ({
   appBarDrawer: {
@@ -36,7 +38,29 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
     background: drawerBackgroundColor,
   },
+  listItem: {
+    paddingTop: 0,
+    paddingBottom: 0,
+    alignItems: 'baseline'
+  },
+  listItemText:{
+    fontSize:'0.9rem',
+    color: '#adadad',
+    paddingLeft: 8
+  }
 }));
+
+function ListItem1(props) {
+  const classes = useStyles();
+  return (
+    <ListItem classes={{root:classes.listItem}} 
+              button 
+              key={props.name} >
+          <FontAwesomeIcon icon={faFolder} color={"#ffcb6b"} />
+      <ListItemText classes={{primary:classes.listItemText}} primary={props.name} />
+    </ListItem>
+  );
+}
 
 function DrawerResponsive(props) {
   const { container } = props;
@@ -52,21 +76,15 @@ function DrawerResponsive(props) {
       </Toolbar>
       <Divider />
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+          <ListItem1 name={'About'}/>
+          <ListItem1 name={'Reverse Engineering: Huawei SmartAX MT882'}/>
+          <ListItem1 name={'JPEG: A picture with fewer words is worth the same'}/>
+          <ListItem1 name={'Autostereogram: A picture that is worth more than itself'}/>
+          <ListItem1 name={'MQTT Baselines'}/>
+          <ListItem1 name={'BeagleBone Black Troubleshooting'}/>
+          <ListItem1 name={'University Projects'}/>
+          <ListItem1 name={'Android Apps'}/>
+          <ListItem1 name={'Git Cheatsheet'}/>
       </List>
     </div>
   );
