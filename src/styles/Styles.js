@@ -8,13 +8,6 @@ export const drawerBackgroundColor = '#414450';
 export const drawerH6Color = '#FFF';
 
 export const useStyles = makeStyles((theme) => ({
-  /** AppBar */
-  appBar: {
-    backgroundColor: drawerBackgroundColor,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
   /** Drawer */
   /** Button Scroll to Top */
   buttonScrollToTop: {

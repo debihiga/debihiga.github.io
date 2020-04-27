@@ -22,12 +22,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// TODO: Create a theme
-export const drawerWidth = 240;
-// Used in DrawerResponsive and AppBarHidden
-export const drawerBackgroundColor = '#414450';
-export const drawerH6Color = '#FFF';
-export const title = "DEBI HIGA";
 /**
  naranja: #ffcb6b
 azul: #7da3f3

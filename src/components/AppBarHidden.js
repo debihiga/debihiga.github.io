@@ -5,8 +5,16 @@ import MenuIcon from '@material-ui/icons/Menu';
 import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 import { title } from '../constants/Constants';
-import { useStyles } from '../styles/Styles';
+
+const useStyles = makeStyles((theme) => ({
+  /** Title bar */
+  appBar: {
+    backgroundColor: '#3C3C3C',
+    color: '#CCCCCC',
+  },
+}));
 
 function AppBarHidden(props) {
 
@@ -22,7 +30,6 @@ function AppBarHidden(props) {
               aria-label="open drawer"
               edge="start"
               onClick={props.handleDrawerToggle}
-              className={classes.menuButton}
             >
               <MenuIcon />
             </IconButton>
