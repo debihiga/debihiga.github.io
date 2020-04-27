@@ -1,23 +1,10 @@
 import './App.css';
 
-import {createMuiTheme, makeStyles} from '@material-ui/core/styles';
-
 import Box from '@material-ui/core/Box';
 import Page from './components/Page';
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    bottom: theme.spacing(2),
-    right: theme.spacing(2),
-    display: 'flex',
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
-}));
+import {createMuiTheme} from '@material-ui/core/styles';
 
 /**
  naranja: #ffcb6b
@@ -47,12 +34,7 @@ const theme = createMuiTheme({
 
 function App(props) {
 
-  const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
 
   return (
     <Page>
