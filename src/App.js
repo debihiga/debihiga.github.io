@@ -2,13 +2,13 @@ import './App.css';
 
 import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
 
-import { AnchorBackToTop } from './components/ButtonScrollTop';
 import AppBarHidden from './components/AppBarHidden';
 import Box from '@material-ui/core/Box';
 import ButtonScrollTop from './components/ButtonScrollTop';
 import Container from '@material-ui/core/Container';
 import DrawerResponsive from './components/DrawerResponsive';
 import React from 'react';
+import { anchorScrollToTop } from './constants/Constants';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,7 +60,7 @@ function App(props) {
         <DrawerResponsive handleDrawerToggle={handleDrawerToggle}
                           mobileOpen={mobileOpen} />
         <main className={classes.content}>
-          <div id={AnchorBackToTop} />
+          <div id={anchorScrollToTop} />
           <AppBarHidden handleDrawerToggle={handleDrawerToggle} />
           <Container>
             <Box my={2}>
