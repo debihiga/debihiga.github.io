@@ -1,14 +1,11 @@
 import './App.css';
 
-import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
+import {createMuiTheme, makeStyles} from '@material-ui/core/styles';
 
-import AppBarHidden from './components/AppBarHidden';
 import Box from '@material-ui/core/Box';
-import ButtonScrollTop from './components/ButtonScrollTop';
-import Container from '@material-ui/core/Container';
-import DrawerResponsive from './components/DrawerResponsive';
+import Page from './components/Page';
 import React from 'react';
-import { anchorScrollToTop } from './constants/Constants';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,6 +39,9 @@ const theme = createMuiTheme({
     fontFamily: [
       '"IBM Plex Mono", monospace',
     ].join(','),
+    h4: {
+      fontColor: '#F00'
+    }
   },
 });
 
@@ -49,38 +49,49 @@ function App(props) {
 
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className={classes.root}>
-        <DrawerResponsive handleDrawerToggle={handleDrawerToggle}
-                          mobileOpen={mobileOpen} />
-        <main className={classes.content}>
-          <div id={anchorScrollToTop} />
-          <AppBarHidden handleDrawerToggle={handleDrawerToggle} />
-          <Container>
-            <Box my={2}>
-              {[...new Array(30)]
-                .map(
-                  () => `Cras mattis consectetur purus sit amet fermentum.
-    Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-    Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-    Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-                )
-                .join('\n')}
-            </Box>
-          </Container>
-          <ButtonScrollTop {...props}>
-
-          </ButtonScrollTop>
-        </main>
-      </div>
-
-    </ThemeProvider>
+    <Page>
+      <Typography variant="h4" gutterBottom>
+        h4. Heading
+      </Typography>
+      <Typography variant="h5" gutterBottom>
+        h5. Heading
+      </Typography>
+      <Typography variant="body1" gutterBottom>
+        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+        unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
+        dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+      </Typography>
+      <Typography variant="body2" gutterBottom>
+        body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+        unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
+        dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+      </Typography>
+      <Typography variant="button" display="block" gutterBottom>
+        button text
+      </Typography>
+      <Typography variant="caption" display="block" gutterBottom>
+        caption text
+      </Typography>
+      <Typography variant="overline" display="block" gutterBottom>
+        overline text
+      </Typography>
+      <Box my={2}>
+          {[...new Array(12)]
+            .map(
+              () => `Cras mattis consectetur purus sit amet fermentum.
+Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
+            )
+            .join('\n')}
+        </Box>
+    </Page>
   );
 }
 
