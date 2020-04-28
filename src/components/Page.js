@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-    backgroundColor: '#1E1E1E',
-    color: '#CCCCCC',
+    backgroundColor: '#282A36',
+    color: '#E7EAEF',
   },
 }));
 
@@ -26,11 +26,23 @@ const theme = createMuiTheme({
     fontFamily: [
       'Consolas, "Liberation Mono", Menlo, Courier, monospace',
     ].join(','),
+    h1: {
+      color: '#F0FF79'
+    },
+    h2: {
+      color: '#EBB16E'
+    },
+    h3: {
+      color: '#FF78C4'
+    },
     h4: {
-      color: '#f73378'
+      color: '#616BE8'
     },
     h5: {
-      color: '#ff6333'
+      color: '#66FFC8'
+    },
+    body2: {
+      color: '#9294A3'
     },
     button: {
       color: '#5393ff'

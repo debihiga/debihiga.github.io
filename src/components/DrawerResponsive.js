@@ -1,3 +1,4 @@
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { drawerWidth, title } from '../constants/Constants';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
@@ -9,17 +10,38 @@ import Hidden from '@material-ui/core/Hidden';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import { NavLink } from 'react-router-dom';
 import React from 'react';
+import ReverseEngineeringHuaweiSmartAXMT882 from '../pages/ReverseEngineeringHuaweiSmartAXMT882/ReverseEngineeringHuaweiSmartAXMT882';
 import { Toolbar } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import { faFolder } from '@fortawesome/free-regular-svg-icons'
+
+/** Drawer content */
+
+const drawerContent = (
+  <div>
+    <DrawerHeader />
+    <Divider />
+    <List>
+      <ListItem1 name={'Reverse Engineering: Huawei SmartAX MT882'} path={"/ReverseEngineeringHuaweiSmartAXMT882"} />
+      <ListItem1 name={'JPEG: A picture with fewer words is worth the same'} path={"/sample"} />
+      <ListItem1 name={'Autostereogram: A picture that is worth more than itself'} path={"/sample"} />
+      <ListItem1 name={'MQTT Baselines'} path={"/sample"} />
+      <ListItem1 name={'BeagleBone Black Troubleshooting'} path={"/sample"} />
+      <ListItem1 name={'University Projects'} path={"/sample"} />
+      <ListItem1 name={'Android Apps'} path={"/sample"} />
+      <ListItem1 name={'Git Cheatsheet'} path={"/sample"} />
+    </List>
+  </div>
+);
 
 /** Drawer Header */
 
 const stylesDrawerHeader = makeStyles((theme) => ({
   /** Project folder */
   drawerHeader: {
-    backgroundColor: '#383838',
+    backgroundColor: '#353A4D',
     color: '#CCCCCC',
   },
 }));
@@ -56,7 +78,9 @@ function ListItem1(props) {
       button
       key={props.name} >
       <FontAwesomeIcon icon={faFolder} color={"#ffcb6b"} />
-      <ListItemText classes={{ primary: classes.listItemText }} primary={props.name} />
+      <NavLink to={props.path}>
+        <ListItemText classes={{ primary: classes.listItemText }} primary={props.name} />
+      </NavLink>
     </ListItem>
   );
 }
@@ -73,8 +97,8 @@ const stylesDrawer = makeStyles((theme) => ({
   /** Project folders */
   drawerPaper: {
     width: drawerWidth, // Adjust drawer width
-    backgroundColor: '#252525',
-    color: '#CCCCCC',
+    backgroundColor: '#46474F',
+    color: '#BCBFC8',
   },
 }));
 
@@ -82,24 +106,6 @@ function DrawerResponsive(props) {
 
   const classes = stylesDrawer();
   const theme = useTheme();
-
-  const drawer = (
-    <div>
-      <DrawerHeader />
-      <Divider />
-      <List>
-        <ListItem1 name={'About'} />
-        <ListItem1 name={'Reverse Engineering: Huawei SmartAX MT882'} />
-        <ListItem1 name={'JPEG: A picture with fewer words is worth the same'} />
-        <ListItem1 name={'Autostereogram: A picture that is worth more than itself'} />
-        <ListItem1 name={'MQTT Baselines'} />
-        <ListItem1 name={'BeagleBone Black Troubleshooting'} />
-        <ListItem1 name={'University Projects'} />
-        <ListItem1 name={'Android Apps'} />
-        <ListItem1 name={'Git Cheatsheet'} />
-      </List>
-    </div>
-  );
 
   return (
     <nav className={classes.drawer} aria-label="menu">
@@ -116,7 +122,7 @@ function DrawerResponsive(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
         >
-          {drawer}
+          {drawerContent}
         </Drawer>
       </Hidden>
       {/* Desktop Drawer */}
@@ -126,7 +132,7 @@ function DrawerResponsive(props) {
           variant="permanent"
           open
         >
-          {drawer}
+          {drawerContent}
         </Drawer>
       </Hidden>
     </nav>
