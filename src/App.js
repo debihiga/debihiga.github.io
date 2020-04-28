@@ -14,6 +14,9 @@ function App(props) {
   return (
     <BrowserRouter>
       <Page>
+        {/** https://www.codingame.com/playgrounds/6517/react-router-tutorial
+         * https://www.codementor.io/@packt/using-the-link-and-navlink-components-to-navigate-to-a-route-rieqipp42
+         */}
         <Switch>
           <Route path="/" component={Sample} exact />
           <Route path="/sample" component={Sample} />

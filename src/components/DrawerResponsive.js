@@ -67,7 +67,8 @@ const useStyles = makeStyles((theme) => ({
   },
   listItemText: {
     fontSize: '0.9rem',
-    paddingLeft: 8
+    paddingLeft: 8,
+    color: '#BCBFC8',
   }
 }));
 
@@ -98,7 +99,6 @@ const stylesDrawer = makeStyles((theme) => ({
   drawerPaper: {
     width: drawerWidth, // Adjust drawer width
     backgroundColor: '#46474F',
-    color: '#BCBFC8',
   },
 }));
 
