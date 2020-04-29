@@ -67,7 +67,6 @@ const theme = createMuiTheme({
   },
 });
 
-/** https://mui-treasury.com/ */
 const config = {
   "autoCollapseDisabled": false,
   "collapsedBreakpoint": "sm",
@@ -146,7 +145,7 @@ function Page(props) {
 
   return (
     <Root config={config} theme={theme}>
-      {({ sidebarStyles, collapsed }) => (
+      {({ sidebarStyles, collapsed, opened }) => (
         <>
           <CssBaseline />
           <AppBarHidden />
@@ -154,15 +153,22 @@ function Page(props) {
           <DrawerResponsive
             collapsed={collapsed}
             sidebarStyles={sidebarStyles} />
-          <Content className={classes.content}>
-              {children}
-            <ButtonScrollTop {...props} />
-          </Content>
-          <Footer>
-            <FooterMockUp />
-          </Footer>
         </>
       )}
+
+      {/**
+       *       <ThemeProvider theme={theme}>
+      <div className={classes.root}>
+          <main className={classes.content}>
+            <Container>
+              {children}
+            </Container>
+            <ButtonScrollTop {...props} />
+          </main>
+        </div>
+      </ThemeProvider>
+       * 
+       */}
     </Root>
   );
 }
