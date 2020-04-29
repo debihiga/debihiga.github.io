@@ -31,8 +31,6 @@ import { pages } from '../pages/Pages';
 
 const drawerContent = (
   <div>
-    <DrawerHeader />
-    <Divider />
     <List>
       {pages.map((page) => (
         <ListItem1 key={page.name} name={page.name} path={page.path} />
@@ -106,12 +104,10 @@ function DrawerResponsive(props) {
 
   return (
     <Sidebar>
+      <DrawerHeader />
       <div className={classes.drawerPaper+' '+props.sidebarStyles.container}>
         {drawerContent}
       </div>
-      <CollapseBtn className={props.sidebarStyles.collapseBtn}>
-        {props.collapsed ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-      </CollapseBtn>
     </Sidebar>
   );
 }
