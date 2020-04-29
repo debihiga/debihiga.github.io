@@ -6,7 +6,7 @@ import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { title } from '../constants/Constants';
+import { title } from '../Constants';
 
 const useStyles = makeStyles((theme) => ({
   /** Title bar */

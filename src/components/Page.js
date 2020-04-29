@@ -5,7 +5,7 @@ import ButtonScrollTop from './ButtonScrollTop';
 import Container from '@material-ui/core/Container';
 import DrawerResponsive from './DrawerResponsive';
 import React from 'react';
-import { anchorScrollToTop } from '../constants/Constants';
+import { anchorScrollToTop } from '../Constants';
 
 const useStyles = makeStyles((theme) => ({
   root: {

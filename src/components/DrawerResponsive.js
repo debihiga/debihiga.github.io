@@ -1,5 +1,4 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { drawerWidth, title } from '../constants/Constants';
+import { drawerWidth, title } from '../Constants';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,10 +11,10 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { NavLink } from 'react-router-dom';
 import React from 'react';
-import ReverseEngineeringHuaweiSmartAXMT882 from '../pages/ReverseEngineeringHuaweiSmartAXMT882/ReverseEngineeringHuaweiSmartAXMT882';
 import { Toolbar } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import { faFolder } from '@fortawesome/free-regular-svg-icons'
+import { pages } from '../pages/Pages';
 
 /** Drawer content */
 
@@ -24,14 +23,9 @@ const drawerContent = (
     <DrawerHeader />
     <Divider />
     <List>
-      <ListItem1 name={'Reverse Engineering: Huawei SmartAX MT882'} path={"/ReverseEngineeringHuaweiSmartAXMT882"} />
-      <ListItem1 name={'JPEG: A picture with fewer words is worth the same'} path={"/sample"} />
-      <ListItem1 name={'Autostereogram: A picture that is worth more than itself'} path={"/sample"} />
-      <ListItem1 name={'MQTT Baselines'} path={"/sample"} />
-      <ListItem1 name={'BeagleBone Black Troubleshooting'} path={"/sample"} />
-      <ListItem1 name={'University Projects'} path={"/sample"} />
-      <ListItem1 name={'Android Apps'} path={"/sample"} />
-      <ListItem1 name={'Git Cheatsheet'} path={"/sample"} />
+      {pages.map((page) => (
+        <ListItem1 key={page.name} name={page.name} path={page.path} />
+      ))}
     </List>
   </div>
 );

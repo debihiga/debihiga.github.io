@@ -2,12 +2,10 @@ import './App.css';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Error from './pages/Error';
-import Home from './pages/Home';
 import Page from './components/Page';
 import React from 'react';
-import ReverseEngineeringHuaweiSmartAXMT882 from './pages/ReverseEngineeringHuaweiSmartAXMT882/ReverseEngineeringHuaweiSmartAXMT882';
 import Sample from './pages/Sample';
+import { pages } from './pages/Pages';
 
 function App(props) {
 
@@ -18,9 +16,10 @@ function App(props) {
          * https://www.codementor.io/@packt/using-the-link-and-navlink-components-to-navigate-to-a-route-rieqipp42
          */}
         <Switch>
-          <Route path="/" component={Sample} exact />
-          <Route path="/sample" component={Sample} />
-          <Route component={Error} />
+          {pages.map((page) => (
+            <Route key={page.name} component={page.component} path={page.path} />
+          ))}
+          <Route component={Sample} path="/sample" />
         </Switch>
       </Page>
     </BrowserRouter>

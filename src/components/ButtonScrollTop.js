@@ -2,7 +2,7 @@ import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import React from 'react';
 import Zoom from '@material-ui/core/Zoom';
-import { anchorScrollToTop } from '../constants/Constants';
+import { anchorScrollToTop } from '../Constants';
 import { makeStyles } from '@material-ui/core/styles';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 
