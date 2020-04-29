@@ -1,10 +1,4 @@
-import {
-  Header,
-  SidebarTrigger,
-} from '@mui-treasury/layout';
-
 import AppBar from '@material-ui/core/AppBar';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -27,17 +21,27 @@ function AppBarHidden(props) {
   const classes = useStyles();
 
   return (
-    <Header className={classes.appBar} >
-      <Toolbar>
-        <SidebarTrigger className={classes.appBar} >
-          <MenuIcon />
-        </SidebarTrigger>
-        <Typography variant="h6" noWrap>
-          {title}
-        </Typography>
+    <React.Fragment>
+      <Hidden smUp implementation="css">
+        <AppBar position="fixed" className={classes.appBar}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={props.handleDrawerToggle}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap>
+              {title}
+            </Typography>
+          </Toolbar>
+        </AppBar>
         {/** Below second Toolbar is necessary to add padding below the AppBar */}
-      </Toolbar >
-    </Header>
+        <Toolbar />
+      </Hidden>
+    </React.Fragment>
   );
 }
 

@@ -1,25 +1,8 @@
-import {
-  CollapseBtn,
-  Content,
-  Footer,
-  Header,
-  Root,
-  Sidebar,
-  SidebarTrigger,
-} from '@mui-treasury/layout';
-import {
-  ContentMockUp,
-  FooterMockUp,
-  HeaderMockUp,
-  NavContentMockUp,
-  NavHeaderMockUp,
-} from '@mui-treasury/mockup/layout';
 import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
 
 import AppBarHidden from './AppBarHidden';
 import ButtonScrollTop from './ButtonScrollTop';
 import Container from '@material-ui/core/Container';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import DrawerResponsive from './DrawerResponsive';
 import React from 'react';
 import { anchorScrollToTop } from '../Constants';
@@ -67,87 +50,9 @@ const theme = createMuiTheme({
   },
 });
 
-const config = {
-  "autoCollapseDisabled": false,
-  "collapsedBreakpoint": "sm",
-  "heightAdjustmentDisabled": false,
-  /** Mobile */
-  "xs": {
-    "sidebar": {
-      "anchor": "left",
-      "hidden": false,
-      "inset": false,
-      "variant": "temporary",
-      "width": 240,
-      "collapsible": false,
-      "collapsedWidth": 64
-    },
-    "header": {
-      "position": "sticky",               /** Fixed at top */
-      "clipped": true,
-      "offsetHeight": 56,
-      "persistentBehavior": "flexible"
-    },
-    "content": {
-      "persistentBehavior": "flexible"
-    },
-    "footer": {
-      "persistentBehavior": "flexible"
-    }
-  },
-  /** Laptop */
-  "sm": {
-    "sidebar": {
-      "anchor": "left",
-      "hidden": false,
-      "inset": false,
-      "variant": "permanent",
-      "width": 256,
-      "collapsible": false,
-      "collapsedWidth": 64
-    },
-    "header": {
-      "position": "relative",
-      "clipped": true,
-      "offsetHeight": 64,
-      "persistentBehavior": "flexible"
-    },
-    "content": {
-      "persistentBehavior": "flexible"
-    },
-    "footer": {
-      "persistentBehavior": "flexible"
-    }
-  },
-  /** Desktop */
-  "md": {
-    "sidebar": {
-      "anchor": "left",
-      "hidden": false,
-      "inset": false,
-      "variant": "permanent",
-      "width": 256,
-      "collapsible": false,
-      "collapsedWidth": 64
-    },
-    "header": {
-      "position": "relative",
-      "clipped": true,
-      "offsetHeight": 64,
-      "persistentBehavior": "flexible"
-    },
-    "content": {
-      "persistentBehavior": "flexible"
-    },
-    "footer": {
-      "persistentBehavior": "flexible"
-    }
-  }
-};
-
 function Page(props) {
 
-  const { children } = props;
+  const {children} = props;
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -156,37 +61,20 @@ function Page(props) {
   };
 
   return (
-    <Root config={config} theme={theme}>
-      {({ headerStyles, sidebarStyles, collapsed, opened }) => (
-        <>
-          <CssBaseline />
-          <AppBarHidden
-            headerStyles={headerStyles}
-            opened={opened}
-            handleDrawerToggle={handleDrawerToggle} />
-          <div id={anchorScrollToTop} />
-          <DrawerResponsive
-            collapsed={collapsed}
-            sidebarStyles={sidebarStyles}
-            handleDrawerToggle={handleDrawerToggle}
-            mobileOpen={mobileOpen} />
-        </>
-      )}
-
-      {/**
-       *       <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <div className={classes.root}>
-          <main className={classes.content}>
-            <Container>
-              {children}
-            </Container>
-            <ButtonScrollTop {...props} />
-          </main>
-        </div>
-      </ThemeProvider>
-       * 
-       */}
-    </Root>
+        <DrawerResponsive handleDrawerToggle={handleDrawerToggle}
+          mobileOpen={mobileOpen} />
+        <main className={classes.content}>
+          <AppBarHidden handleDrawerToggle={handleDrawerToggle} />
+          <div id={anchorScrollToTop} />
+          <Container>
+            {children}
+          </Container>
+          <ButtonScrollTop {...props}/>
+        </main>
+      </div>
+    </ThemeProvider>
   );
 }
 
