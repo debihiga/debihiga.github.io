@@ -1,6 +1,17 @@
+import {
+  CollapseBtn,
+  Content,
+  Footer,
+  Header,
+  Root,
+  Sidebar,
+  SidebarTrigger
+} from '@mui-treasury/layout';
 import { drawerWidth, title } from '../Constants';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
@@ -102,34 +113,16 @@ function DrawerResponsive(props) {
   const theme = useTheme();
 
   return (
-    <nav className={classes.drawer} aria-label="menu">
-      <CssBaseline />
-      {/* Mobile Drawer */}
-      <Hidden smUp implementation="css">
-        <Drawer
-          variant="temporary"
-          anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-          open={props.mobileOpen}
-          onClose={props.handleDrawerToggle}
-          classes={{ paper: classes.drawerPaper }}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-        >
-          {drawerContent}
-        </Drawer>
-      </Hidden>
-      {/* Desktop Drawer */}
-      <Hidden xsDown implementation="css">
-        <Drawer
-          classes={{ paper: classes.drawerPaper }}
-          variant="permanent"
-          open
-        >
-          {drawerContent}
-        </Drawer>
-      </Hidden>
-    </nav>
+
+    <Sidebar>
+      <DrawerHeader />
+      <div className={props.sidebarStyles.container}>
+        {drawerContent}
+      </div>
+      <CollapseBtn className={props.sidebarStyles.collapseBtn}>
+        {props.collapsed ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+      </CollapseBtn>
+    </Sidebar>
   );
 }
 
