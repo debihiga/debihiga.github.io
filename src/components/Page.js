@@ -77,13 +77,14 @@ const config = {
       "anchor": "left",
       "hidden": false,
       "inset": false,
-      "variant": "temporary",             /** Opened from AppBar */
+      "variant": "temporary",
       "width": 240,
       "collapsible": false,
       "collapsedWidth": 64
     },
     "header": {
       "position": "sticky",               /** Fixed at top */
+      "clipped": true,
       "offsetHeight": 56,
       "persistentBehavior": "flexible"
     },
@@ -106,7 +107,10 @@ const config = {
       "collapsedWidth": 64
     },
     "header": {
-      /** Hidden */
+      "position": "relative",
+      "clipped": true,
+      "offsetHeight": 64,
+      "persistentBehavior": "flexible"
     },
     "content": {
       "persistentBehavior": "flexible"
@@ -127,7 +131,10 @@ const config = {
       "collapsedWidth": 64
     },
     "header": {
-      /** Hidden */
+      "position": "relative",
+      "clipped": true,
+      "offsetHeight": 64,
+      "persistentBehavior": "flexible"
     },
     "content": {
       "persistentBehavior": "flexible"
@@ -142,17 +149,27 @@ function Page(props) {
 
   const { children } = props;
   const classes = useStyles();
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
 
   return (
     <Root config={config} theme={theme}>
-      {({ sidebarStyles, collapsed, opened }) => (
+      {({ headerStyles, sidebarStyles, collapsed, opened }) => (
         <>
           <CssBaseline />
-          <AppBarHidden />
+          <AppBarHidden
+            headerStyles={headerStyles}
+            opened={opened}
+            handleDrawerToggle={handleDrawerToggle} />
           <div id={anchorScrollToTop} />
           <DrawerResponsive
             collapsed={collapsed}
-            sidebarStyles={sidebarStyles} />
+            sidebarStyles={sidebarStyles}
+            handleDrawerToggle={handleDrawerToggle}
+            mobileOpen={mobileOpen} />
         </>
       )}
 

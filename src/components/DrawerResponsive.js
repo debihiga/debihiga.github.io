@@ -94,8 +94,15 @@ function ListItem1(props) {
 /** Drawer */
 
 const stylesDrawer = makeStyles((theme) => ({
+  drawer: {
+    [theme.breakpoints.up('sm')]: {
+      width: drawerWidth, // Shifts page content
+      flexShrink: 0,
+    },
+  },
   /** Project folders */
   drawerPaper: {
+    width: drawerWidth, // Adjust drawer width
     backgroundColor: '#46474F',
   },
 }));
@@ -103,10 +110,13 @@ const stylesDrawer = makeStyles((theme) => ({
 function DrawerResponsive(props) {
 
   const classes = stylesDrawer();
+  const theme = useTheme();
 
   return (
+
     <Sidebar>
-      <div className={classes.drawerPaper+' '+props.sidebarStyles.container}>
+      <DrawerHeader />
+      <div className={props.sidebarStyles.container}>
         {drawerContent}
       </div>
       <CollapseBtn className={props.sidebarStyles.collapseBtn}>
