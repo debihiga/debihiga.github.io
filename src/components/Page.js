@@ -1,6 +1,7 @@
 import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
 
 import AppBarHidden from './AppBarHidden';
+import Box from '@material-ui/core/Box';
 import ButtonScrollTop from './ButtonScrollTop';
 import Container from '@material-ui/core/Container';
 import DrawerResponsive from './DrawerResponsive';
@@ -14,10 +15,10 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
     backgroundColor: '#282A36',
     color: '#E7EAEF',
+    width: '100%',
+    minHeight: "100vh"
   },
 }));
 
@@ -52,7 +53,7 @@ const theme = createMuiTheme({
 
 function Page(props) {
 
-  const {children} = props;
+  const { children } = props;
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -68,10 +69,17 @@ function Page(props) {
         <main className={classes.content}>
           <AppBarHidden handleDrawerToggle={handleDrawerToggle} />
           <div id={anchorScrollToTop} />
-          <Container>
-            {children}
-          </Container>
-          <ButtonScrollTop {...props}/>
+          <Box height="100%" display="flex" flexDirection="column">
+            <Box p={1} flexGrow={1}>
+              <Container>
+                {children}
+              </Container>
+            </Box>
+            <Box p={1} bgcolor="black">
+            linkedin.com/in/debihiga | debihiga.wordpress.com
+            </Box>
+          </Box>
+          <ButtonScrollTop {...props} />
         </main>
       </div>
     </ThemeProvider>
