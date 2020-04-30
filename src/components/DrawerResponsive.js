@@ -12,13 +12,15 @@ import Typography from '@material-ui/core/Typography';
 
 /** Drawer content */
 
-const drawerContent = (
-  <React.Fragment>
-    <DrawerHeader />
-    <Divider />
-    <Menu/>
-  </React.Fragment>
-);
+function DrawerContent(props) {
+  return (
+    <React.Fragment>
+      <DrawerHeader />
+      <Divider />
+      <Menu handleDrawerToggle={props.handleDrawerToggle}/>
+    </React.Fragment>
+  );
+}
 
 /** Drawer Header */
 
@@ -53,7 +55,7 @@ const stylesDrawer = makeStyles((theme) => ({
   /** Project folders */
   drawerPaper: {
     width: drawerWidth, // Adjust drawer width
-    backgroundColor: '#46474F',
+    backgroundColor: '#414350',
   },
 }));
 
@@ -77,7 +79,7 @@ function DrawerResponsive(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
         >
-          {drawerContent}
+          <DrawerContent handleDrawerToggle={props.handleDrawerToggle}/>
         </Drawer>
       </Hidden>
       {/* Desktop Drawer */}
@@ -87,7 +89,7 @@ function DrawerResponsive(props) {
           variant="permanent"
           open
         >
-          {drawerContent}
+          <DrawerContent handleDrawerToggle={()=>{}}/>
         </Drawer>
       </Hidden>
     </nav>

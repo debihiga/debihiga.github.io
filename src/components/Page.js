@@ -42,6 +42,10 @@ const theme = createMuiTheme({
     h5: {
       color: '#66FFC8'
     },
+    body1: {
+      color: '#E7EAEF',
+      fontSize: '0.9rem'
+    },
     body2: {
       color: '#9294A3'
     },

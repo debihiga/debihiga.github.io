@@ -7,8 +7,26 @@ import React from 'react';
 import Sample from './pages/Sample';
 import { pages } from './constants/Pages';
 
-function App(props) {
+function getSwitch(pages) {
+  return pages.map((page) => {
+    if (!page.children) {
+      return (
+        <Route key={page.name} component={page.component} path={page.url} />
+      )
+    }
+    /** 
+     * if there is no child this method uses recursion 
+     * to go until the last level of children and then returns the item by the first condition.
+     * */
+    return (
+      <React.Fragment key={page.name}>
+        {getSwitch(page.children)}
+      </React.Fragment>
+    )
+  })
+}
 
+function App(props) {
   return (
     <BrowserRouter>
       <Page>
@@ -16,10 +34,7 @@ function App(props) {
          * https://www.codementor.io/@packt/using-the-link-and-navlink-components-to-navigate-to-a-route-rieqipp42
          */}
         <Switch>
-          {pages.map((page) => (
-            <Route key={page.name} component={page.component} path={page.path} />
-          ))}
-          <Route component={Sample} path="/sample" />
+          {getSwitch(pages)}
         </Switch>
       </Page>
     </BrowserRouter>

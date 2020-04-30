@@ -4,12 +4,17 @@ import UnderConstruction from '../pages/UnderConstruction';
 /** 
  * https://medium.com/gammastack/making-a-nested-sidebar-menu-in-react-f8595031995e
  * https://www.smartwebsolutions.org/replace-space-with-hyphen/ */
- export const pages = [
+export const pages = [
   {
     name: "Reverse Engineering: Huawei SmartAX MT882",
-    url: "/reverse-engineering-huawei-smartax-mt882",
+    url: "",
     component: UnderConstruction,
     children: [
+      {
+        name: "Introduction",
+        url: "/reverse-engineering-huawei-smartax-mt882/introduction",
+        component: UnderConstruction,
+      },
       {
         name: "Device analysis",
         url: "/reverse-engineering-huawei-smartax-mt882/device-analysis",
@@ -27,49 +32,68 @@ import UnderConstruction from '../pages/UnderConstruction';
       },
       {
         name: "Bug hunting",
-        path: "/reverse-engineering-huawei-smartax-mt882/bug-hunting",
+        url: "/reverse-engineering-huawei-smartax-mt882/bug-hunting",
         component: UnderConstruction,
+        children: [
+          {
+            name: "Security Advisory: WHIP Vulnerability",
+            url: "/reverse-engineering-huawei-smartax-mt882/security-advisory/whip-vulnerability",
+            component: UnderConstruction,
+          },
+          {
+            name: "Security Advisory: FTP Vulnerability",
+            url: "/reverse-engineering-huawei-smartax-mt882/security-advisory/ftp-vulnerability",
+            component: UnderConstruction,
+          },
+        ]
       }
     ]
   },
   {
     name: "JPEG: A picture with fewer words is worth the same",
     url: "/jpeg-a-picture-with-fewer-words-is-worth-the-same",
-    component: UnderConstruction
+    component: UnderConstruction,
   },
   {
     name: "Autostereogram: A picture that is worth more than itself",
     url: "/autostereogram-a-picture-that-is-worth-more-than-itself",
-    component: UnderConstruction
+    component: UnderConstruction,
   },
   {
     name: "MQTT Baselines",
     url: "/mqtt-baselines",
-    component: UnderConstruction
+    component: UnderConstruction,
   },
   {
     name: "BeagleBone Black Troubleshooting",
     url: "/beaglebone-black-troubleshooting",
-    component: UnderConstruction
+    component: UnderConstruction,
   },
   {
     name: "University Projects",
     url: "/university-projects",
-    component: UnderConstruction
+    component: UnderConstruction,
   },
   {
     name: "Android Apps",
     url: "/android-apps",
-    component: UnderConstruction
+    component: UnderConstruction,
   },
   {
     name: "Git Cheatsheet",
     url: "/git-cheatsheet",
-    component: UnderConstruction
+    component: UnderConstruction,
+    children: [
+      {
+        name: "Git Branches",
+        url: "/git-cheatsheet/branches",
+        component: UnderConstruction,
+      }
+    ]
   },
   {
     name: "Sample",
     url: "/sample",
-    component: Sample
+    component: Sample,
   },
 ];
