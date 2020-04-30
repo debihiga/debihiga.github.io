@@ -1,33 +1,23 @@
-import { drawerWidth, title } from '../Constants';
+import { drawerWidth, title } from '../constants/Common';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Hidden from '@material-ui/core/Hidden';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import { NavLink } from 'react-router-dom';
+import Menu from '../pages/Menu';
 import React from 'react';
 import { Toolbar } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
-import { faFolder } from '@fortawesome/free-regular-svg-icons'
-import { pages } from '../pages/Pages';
 
 /** Drawer content */
 
 const drawerContent = (
-  <div>
+  <React.Fragment>
     <DrawerHeader />
     <Divider />
-    <List>
-      {pages.map((page) => (
-        <ListItem1 key={page.name} name={page.name} path={page.path} />
-      ))}
-    </List>
-  </div>
+    <Menu/>
+  </React.Fragment>
 );
 
 /** Drawer Header */
@@ -48,35 +38,6 @@ function DrawerHeader() {
         {title}
       </Typography>
     </Toolbar>
-  );
-}
-
-/** Drawer Items */
-
-const useStyles = makeStyles((theme) => ({
-  listItem: {
-    paddingTop: 0,
-    paddingBottom: 0,
-    alignItems: 'baseline'
-  },
-  listItemText: {
-    fontSize: '0.9rem',
-    paddingLeft: 8,
-    color: '#BCBFC8',
-  }
-}));
-
-function ListItem1(props) {
-  const classes = useStyles();
-  return (
-    <ListItem classes={{ root: classes.listItem }}
-      button
-      key={props.name} >
-      <FontAwesomeIcon icon={faFolder} color={"#ffcb6b"} />
-      <NavLink to={props.path}>
-        <ListItemText classes={{ primary: classes.listItemText }} primary={props.name} />
-      </NavLink>
-    </ListItem>
   );
 }
 

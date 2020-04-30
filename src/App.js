@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Page from './components/Page';
 import React from 'react';
 import Sample from './pages/Sample';
-import { pages } from './pages/Pages';
+import { pages } from './constants/Pages';
 
 function App(props) {
 
