@@ -1,51 +1,15 @@
-import { drawerWidth, title } from '../constants/Common';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
+import DrawerHeader from './DrawerHeader'
+import DrawerList from './DrawerList';
 import Hidden from '@material-ui/core/Hidden';
-import Menu from '../pages/Menu';
 import React from 'react';
-import { Toolbar } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
+import { drawerWidth } from '../../constants/Common';
 
-/** Drawer content */
-
-function DrawerContent(props) {
-  return (
-    <React.Fragment>
-      <DrawerHeader />
-      <Divider />
-      <Menu handleDrawerToggle={props.handleDrawerToggle}/>
-    </React.Fragment>
-  );
-}
-
-/** Drawer Header */
-
-const stylesDrawerHeader = makeStyles((theme) => ({
-  /** Project folder */
-  drawerHeader: {
-    backgroundColor: '#353A4D',
-    color: '#CCCCCC',
-  },
-}));
-
-function DrawerHeader() {
-  const classes = stylesDrawerHeader();
-  return (
-    <Toolbar className={classes.drawerHeader}>
-      <Typography variant="h6" noWrap>
-        {title}
-      </Typography>
-    </Toolbar>
-  );
-}
-
-/** Drawer */
-
-const stylesDrawer = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
   drawer: {
     [theme.breakpoints.up('sm')]: {
       width: drawerWidth, // Shifts page content
@@ -61,8 +25,18 @@ const stylesDrawer = makeStyles((theme) => ({
 
 function DrawerResponsive(props) {
 
-  const classes = stylesDrawer();
+  const classes = useStyles();
   const theme = useTheme();
+
+  function DrawerContent(props) {
+    return (
+      <React.Fragment>
+        <DrawerHeader />
+        <Divider />
+        <DrawerList handleDrawerToggle={props.handleDrawerToggle}/>
+      </React.Fragment>
+    );
+  }
 
   return (
     <nav className={classes.drawer} aria-label="menu">
@@ -75,9 +49,7 @@ function DrawerResponsive(props) {
           open={props.mobileOpen}
           onClose={props.handleDrawerToggle}
           classes={{ paper: classes.drawerPaper }}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
+          ModalProps={{ keepMounted: true }} // Better open performance on mobile.
         >
           <DrawerContent handleDrawerToggle={props.handleDrawerToggle}/>
         </Drawer>

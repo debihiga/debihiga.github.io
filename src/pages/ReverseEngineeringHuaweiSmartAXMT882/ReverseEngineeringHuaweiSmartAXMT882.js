@@ -15,35 +15,13 @@ function ReverseEngineeringHuaweiSmartAXMT882(props) {
         Huawei SmartAX MT882
       </Typography>
       <Typography variant="body1" gutterBottom>
-        This section describes the reverse engineering general steps, using the modem Huawei SmartAX MT882 as an example.
+        This section describes the general steps of reverse engineering, using the modem Huawei SmartAX MT882 as an example.
         <br />
         It explains the whole process, from the extraction of the firmware to the bug hunting.
-        <Divider/>
       </Typography>
-      <Typography variant="body2" gutterBottom>
-        body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-        unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-        dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+      <Typography variant="body1" gutterBottom>
+        Presented in the workshop "How much you trust in your ISP?" from the ekoparty Security Conference 2015.
       </Typography>
-      <Typography variant="button" display="block" gutterBottom>
-        button text
-      </Typography>
-      <Typography variant="caption" display="block" gutterBottom>
-        caption text
-      </Typography>
-      <Typography variant="overline" display="block" gutterBottom>
-        overline text
-      </Typography>
-      <Box my={2}>
-        {[...new Array(12)]
-          .map(
-            () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-          )
-          .join('\n')}
-      </Box>
     </React.Fragment>
   );
 }

@@ -4,7 +4,7 @@ import AppBarHidden from './AppBarHidden';
 import Box from '@material-ui/core/Box';
 import ButtonScrollTop from './ButtonScrollTop';
 import Container from '@material-ui/core/Container';
-import DrawerResponsive from './DrawerResponsive';
+import DrawerResponsive from './drawer/DrawerResponsive';
 import Grid from '@material-ui/core/Grid';
 import React from 'react';
 import { anchorScrollToTop } from '../constants/Common';
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "100vh"
   },
   container: {
-    paddingTop: '64px'
+    paddingTop: '32px'
   },
   blabla: {
     flexGrow: 1
@@ -41,7 +41,9 @@ const theme = createMuiTheme({
       color: '#EBB16E'
     },
     h3: {
-      color: '#FF78C4'
+      color: '#FF78C4',
+      paddingTop: '16px',
+      paddingBottom: '16px'
     },
     h4: {
       color: '#616BE8'
@@ -50,7 +52,8 @@ const theme = createMuiTheme({
       color: '#66FFC8'
     },
     body1: {
-      color: '#E7EAEF'
+      color: '#E7EAEF',
+      paddingTop: '16px',
     },
     body2: {
       color: '#9294A3'
@@ -89,8 +92,8 @@ function Page(props) {
                     {children}
                   </Container>
                 </Grid>
+                {/** TODO: right navigation bar */}
                 <Grid item xs={0} md={3}>
-                  Comments
                 </Grid>
               </Grid>
             </div>
