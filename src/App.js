@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Page from './components/Page';
 import React from 'react';
-import Sample from './pages/Sample';
 import { pages } from './constants/Pages';
 
 function getSwitch(pages) {
@@ -12,17 +11,15 @@ function getSwitch(pages) {
     if (!page.children) {
       return (
         <Route key={page.name} component={page.component} path={page.url} />
-      )
+      );
+    } else {
+      return (
+        <React.Fragment key={page.name}>
+          <Route key={page.name} component={page.component} path={page.url} />
+          {getSwitch(page.children)}
+        </React.Fragment>
+      );
     }
-    /** 
-     * if there is no child this method uses recursion 
-     * to go until the last level of children and then returns the item by the first condition.
-     * */
-    return (
-      <React.Fragment key={page.name}>
-        {getSwitch(page.children)}
-      </React.Fragment>
-    )
   })
 }
 

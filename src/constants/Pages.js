@@ -1,3 +1,4 @@
+import ReverseEngineeringHuaweiSmartAXMT882 from '../pages/ReverseEngineeringHuaweiSmartAXMT882/ReverseEngineeringHuaweiSmartAXMT882';
 import Sample from '../pages/Sample';
 import UnderConstruction from '../pages/UnderConstruction';
 
@@ -7,14 +8,9 @@ import UnderConstruction from '../pages/UnderConstruction';
 export const pages = [
   {
     name: "Reverse Engineering: Huawei SmartAX MT882",
-    url: "",
-    component: UnderConstruction,
+    url: "/reverse-engineering-huawei-smartax-mt882",
+    component: ReverseEngineeringHuaweiSmartAXMT882,
     children: [
-      {
-        name: "Introduction",
-        url: "/reverse-engineering-huawei-smartax-mt882/introduction",
-        component: UnderConstruction,
-      },
       {
         name: "Device analysis",
         url: "/reverse-engineering-huawei-smartax-mt882/device-analysis",

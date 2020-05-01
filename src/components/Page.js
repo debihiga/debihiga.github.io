@@ -5,6 +5,7 @@ import Box from '@material-ui/core/Box';
 import ButtonScrollTop from './ButtonScrollTop';
 import Container from '@material-ui/core/Container';
 import DrawerResponsive from './DrawerResponsive';
+import Grid from '@material-ui/core/Grid';
 import React from 'react';
 import { anchorScrollToTop } from '../constants/Common';
 
@@ -20,6 +21,12 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     minHeight: "100vh"
   },
+  container: {
+    paddingTop: '64px'
+  },
+  blabla: {
+    flexGrow: 1
+  }
 }));
 
 const theme = createMuiTheme({
@@ -43,8 +50,7 @@ const theme = createMuiTheme({
       color: '#66FFC8'
     },
     body1: {
-      color: '#E7EAEF',
-      fontSize: '0.9rem'
+      color: '#E7EAEF'
     },
     body2: {
       color: '#9294A3'
@@ -73,14 +79,24 @@ function Page(props) {
         <main className={classes.content}>
           <AppBarHidden handleDrawerToggle={handleDrawerToggle} />
           <div id={anchorScrollToTop} />
+          {/** https://material-ui.com/system/flexbox/ */}
           <Box height="100%" display="flex" flexDirection="column">
             <Box p={1} flexGrow={1}>
-              <Container>
-                {children}
-              </Container>
+            <div className={classes.blabla}>
+            <Grid container direction="row" spacing={2}>
+                <Grid item xs={12} md={9}>
+                  <Container className={classes.container}>
+                    {children}
+                  </Container>
+                </Grid>
+                <Grid item xs={0} md={3}>
+                  Comments
+                </Grid>
+              </Grid>
+            </div>
             </Box>
             <Box p={1} bgcolor="black">
-            linkedin.com/in/debihiga | debihiga.wordpress.com
+              linkedin.com/in/debihiga | debihiga.wordpress.com
             </Box>
           </Box>
           <ButtonScrollTop {...props} />

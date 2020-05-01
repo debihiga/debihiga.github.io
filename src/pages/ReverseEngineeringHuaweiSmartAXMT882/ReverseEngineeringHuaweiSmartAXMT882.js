@@ -1,3 +1,5 @@
+import { Container, Divider } from '@material-ui/core';
+
 import Box from '@material-ui/core/Box';
 import Page from '../../components/Page';
 import React from 'react';
@@ -6,26 +8,17 @@ import Typography from '@material-ui/core/Typography';
 function ReverseEngineeringHuaweiSmartAXMT882(props) {
 
   return (
-    <Page>
-      <Typography variant="h1" gutterBottom>
-        h1. Heading
-      </Typography>
-      <Typography variant="h2" gutterBottom>
-        h2. Heading
-      </Typography>
+    <React.Fragment>
       <Typography variant="h3" gutterBottom>
-        h3. Heading
-      </Typography>
-      <Typography variant="h4" gutterBottom>
-        h4. Heading
-      </Typography>
-      <Typography variant="h5" gutterBottom>
-        h5. Heading
+        Reverse Engineering:
+        <br />
+        Huawei SmartAX MT882
       </Typography>
       <Typography variant="body1" gutterBottom>
-        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-        unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-        dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+        This section describes the reverse engineering general steps, using the modem Huawei SmartAX MT882 as an example.
+        <br />
+        It explains the whole process, from the extraction of the firmware to the bug hunting.
+        <Divider/>
       </Typography>
       <Typography variant="body2" gutterBottom>
         body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
@@ -51,7 +44,7 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
           )
           .join('\n')}
       </Box>
-    </Page>
+    </React.Fragment>
   );
 }
 

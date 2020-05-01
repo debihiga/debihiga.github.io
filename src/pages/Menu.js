@@ -58,15 +58,11 @@ export default function Menu(props) {
        */
       if (!page.children) {
         return (
-          <Link
-            to={page.url}
-            style={{ textDecoration: 'none' }}>
-            <ListItemNested
-              key={page.name}
-              page={page}
-              handleClick={handleDrawerToggle}
-            />
-          </Link>
+          <ListItemNested
+            key={page.name}
+            page={page}
+            handleClick={handleDrawerToggle}
+          />
         )
       }
       /** 
@@ -80,7 +76,7 @@ export default function Menu(props) {
           handleClick={handleClick}
           state={state}
           getMenu={getMenu} />
-          
+
       )
     })
   }
@@ -121,7 +117,9 @@ function ListItemNested(props) {
   const hasChildren = state == undefined ? false : true;
 
   return (
-    <div>
+    <Link
+      to={page.url}
+      style={{ textDecoration: 'none' }}>
       <ListItem
         button
         className={classes.listItem}
@@ -142,6 +140,6 @@ function ListItemNested(props) {
         :
         <div />
       }
-    </div>
+    </Link>
   )
 }
