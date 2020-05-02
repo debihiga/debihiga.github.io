@@ -1,13 +1,14 @@
-import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
+import { ThemeProvider, makeStyles } from '@material-ui/core/styles';
 
 import AppBarHidden from './AppBarHidden';
 import Box from '@material-ui/core/Box';
 import ButtonScrollTop from './ButtonScrollTop';
-import Container from '@material-ui/core/Container';
+import Content from './Content';
 import DrawerResponsive from './drawer/DrawerResponsive';
-import Grid from '@material-ui/core/Grid';
+import Footer from './Footer';
 import React from 'react';
 import { anchorScrollToTop } from '../constants/Common';
+import { theme } from '../Theme';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,54 +16,19 @@ const useStyles = makeStyles((theme) => ({
     right: theme.spacing(2),
     display: 'flex',
   },
-  content: {
-    backgroundColor: '#282A36',
-    color: '#E7EAEF',
+  main: {
     width: '100%',
     minHeight: "100vh"
   },
-  container: {
-    paddingTop: '32px'
+  box: {
+    padding: 0,
   },
-  blabla: {
-    flexGrow: 1
-  }
+  boxMain: {
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+  },
 }));
-
-const theme = createMuiTheme({
-  typography: {
-    fontFamily: [
-      'Consolas, "Liberation Mono", Menlo, Courier, monospace',
-    ].join(','),
-    h1: {
-      color: '#F0FF79'
-    },
-    h2: {
-      color: '#EBB16E'
-    },
-    h3: {
-      color: '#FF78C4',
-      paddingTop: '16px',
-      paddingBottom: '16px'
-    },
-    h4: {
-      color: '#616BE8'
-    },
-    h5: {
-      color: '#66FFC8'
-    },
-    body1: {
-      color: '#E7EAEF',
-      paddingTop: '16px',
-    },
-    body2: {
-      color: '#9294A3'
-    },
-    button: {
-      color: '#5393ff'
-    },
-  },
-});
 
 function Page(props) {
 
@@ -79,27 +45,16 @@ function Page(props) {
       <div className={classes.root}>
         <DrawerResponsive handleDrawerToggle={handleDrawerToggle}
           mobileOpen={mobileOpen} />
-        <main className={classes.content}>
+        <main className={classes.main}>
           <AppBarHidden handleDrawerToggle={handleDrawerToggle} />
           <div id={anchorScrollToTop} />
           {/** https://material-ui.com/system/flexbox/ */}
-          <Box height="100%" display="flex" flexDirection="column">
-            <Box p={1} flexGrow={1}>
-            <div className={classes.blabla}>
-            <Grid container direction="row" spacing={2}>
-                <Grid item xs={12} md={9}>
-                  <Container className={classes.container}>
-                    {children}
-                  </Container>
-                </Grid>
-                {/** TODO: right navigation bar */}
-                <Grid item xs={0} md={3}>
-                </Grid>
-              </Grid>
-            </div>
+          <Box className={classes.box+' '+classes.boxMain}>
+            <Box p={1} flexGrow={1} className={classes.box}>
+              <Content content={children}/>
             </Box>
-            <Box p={1} bgcolor="black">
-              github.com/debihiga | linkedin.com/in/debihiga | debihiga.wordpress.com
+            <Box p={1} className={classes.box}>
+              <Footer/>
             </Box>
           </Box>
           <ButtonScrollTop {...props} />

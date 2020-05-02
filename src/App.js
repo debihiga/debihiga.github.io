@@ -8,16 +8,15 @@ import { pages } from './constants/Pages';
 
 function getRoutes(pages) {
   let routes = [];
-  for(var i=0; i<pages.length; i++) { 
-    if(pages[i].children) {
-      let subRoutes = getRoutes(pages[i].children);
+  pages.forEach((page) => {
+    if(page.children) {
+      let subRoutes = getRoutes(page.children);
       subRoutes.forEach((subRoute) => {routes.push(subRoute)});
     }
     // Parent must be pushed at the end
     // https://stackoverflow.com/questions/53236282/nested-react-router-hide-parent-component-on-showing-nested-child-component
-    routes.push(<Route key={pages[i].name} component={pages[i].component} path={pages[i].url} />);
-  }
-
+    routes.push(<Route key={page.name} component={page.component} path={page.url} />);
+  });
   return routes;
 }
 
