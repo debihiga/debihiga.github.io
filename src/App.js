@@ -1,6 +1,6 @@
 import './App.css';
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 
 import Page from './components/Page';
 import React from 'react';
@@ -22,16 +22,18 @@ function getRoutes(pages) {
 
 function App(props) {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Page>
         {/** https://www.codingame.com/playgrounds/6517/react-router-tutorial
          * https://www.codementor.io/@packt/using-the-link-and-navlink-components-to-navigate-to-a-route-rieqipp42
+         * https://stackoverflow.com/questions/27928372/react-router-urls-dont-work-when-refreshing-or-writing-manually
+         * https://gist.github.com/duaneleem/3a5a62abc62db156b88a1617380e9704
          */}
         <Switch>
           {getRoutes(pages)}
         </Switch>
       </Page>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
