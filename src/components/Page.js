@@ -99,7 +99,7 @@ function Page(props) {
             </div>
             </Box>
             <Box p={1} bgcolor="black">
-              linkedin.com/in/debihiga | debihiga.wordpress.com
+              github.com/debihiga | linkedin.com/in/debihiga | debihiga.wordpress.com
             </Box>
           </Box>
           <ButtonScrollTop {...props} />

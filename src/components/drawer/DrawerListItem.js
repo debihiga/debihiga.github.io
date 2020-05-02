@@ -12,10 +12,7 @@ const useStyles = makeStyles((theme) => ({
   //  textDecoration: 'none',
   //},
   listItem: {
-    paddingLeft: 0,
-    paddingRight: 0,
-    paddingTop: 0,
-    paddingBottom: 4,
+    padding: '0 0 4px 0',
     alignItems: 'baseline'
   },
   listItemText: {

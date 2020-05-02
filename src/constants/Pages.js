@@ -8,7 +8,7 @@ import UnderConstruction from '../pages/UnderConstruction';
 export const pages = [
   {
     name: "Reverse Engineering: Huawei SmartAX MT882",
-    url: "/reverse-engineering-huawei-smartax-mt882",
+    url: "/reverse-engineering-huawei-smartax-mt882/",
     component: ReverseEngineeringHuaweiSmartAXMT882,
     children: [
       {
