@@ -1,9 +1,11 @@
 import Collapse from '@material-ui/core/Collapse';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
+import { faFolder } from '@fortawesome/free-regular-svg-icons';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -15,10 +17,14 @@ const useStyles = makeStyles((theme) => ({
     padding: '0 0 4px 0',
     alignItems: 'baseline'
   },
+  listIcon: {
+    color: "#ffcb6b",
+  },
   listItemText: {
     fontSize: '0.9rem',
     paddingTop: '0px !important',
     paddingBottom: 0,
+    paddingLeft: "3px",
     color: '#BCBFC8',
   },
   collapse: {
@@ -40,6 +46,7 @@ export default function ListItemNested(props) {
         button
         className={classes.listItem}
         onClick={() => handleClick(page.name)}>
+        <FontAwesomeIcon icon={faFolder} className={classes.listIcon} />
         <ListItemText
           className={classes.listItemText}>
           <Typography className={classes.listItemText}>
