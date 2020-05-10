@@ -1,35 +1,27 @@
 import Collapse from '@material-ui/core/Collapse';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import { faFolder } from '@fortawesome/free-regular-svg-icons';
+import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  // https://stackoverflow.com/questions/37669391/how-to-get-rid-of-underline-for-link-component-of-react-router
-  //link: {
-  //  textDecoration: 'none',
-  //},
   listItem: {
-    padding: '0 0 4px 0',
-    alignItems: 'baseline'
-  },
-  listIcon: {
-    color: "#ffcb6b",
-  },
-  listItemText: {
-    fontSize: '0.9rem',
-    paddingTop: '0px !important',
-    paddingBottom: 0,
-    paddingLeft: "3px",
-    color: '#BCBFC8',
+    paddingTop: 1,
+    paddingBottom: 1,
+    color: 'rgba(255, 255, 255, 0.7)',
+    fontWeight: 400,
+    '&:hover,&:focus': {
+      color: '#FF78C4 !important',
+    },
   },
   collapse: {
     paddingLeft: 16,
-  }
+  },
+  listItemActive: {
+    color: '#FF78C4',
+  },
 }));
 
 export default function ListItemNested(props) {
@@ -44,14 +36,10 @@ export default function ListItemNested(props) {
       style={{ textDecoration: 'none' }}>
       <ListItem
         button
-        className={classes.listItem}
+        className={clsx(classes.listItem, page.isActive && classes.listItemActive)}
         onClick={() => handleClick(page.name)}>
-        <FontAwesomeIcon icon={faFolder} className={classes.listIcon} />
-        <ListItemText
-          className={classes.listItemText}>
-          <Typography className={classes.listItemText}>
+        <ListItemText>
             {page.name}
-          </Typography>
         </ListItemText>
       </ListItem>
       {hasChildren ?

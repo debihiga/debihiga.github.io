@@ -6,15 +6,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import { pages } from '../../constants/Pages';
 
 const useStyles = makeStyles((theme) => ({
-  list: {
-    padding: '24px',
-  },
+  // https://stackoverflow.com/questions/37669391/how-to-get-rid-of-underline-for-link-component-of-react-router
   links: {
     textDecoration: 'none',
   },
-  menuHeader: {
-    paddingLeft: '30px'
-  }
 }));
 
 export default function DrawerList(props) {

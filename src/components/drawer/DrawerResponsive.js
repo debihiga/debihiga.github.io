@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
   /** Project folders */
   drawerPaper: {
     width: drawerWidth, // Adjust drawer width
-    backgroundColor: '#414350',
   },
 }));
 

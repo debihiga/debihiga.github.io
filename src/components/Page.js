@@ -8,6 +8,7 @@ import DrawerResponsive from './drawer/DrawerResponsive';
 import Footer from './Footer';
 import React from 'react';
 import { anchorScrollToTop } from '../constants/Common';
+import clsx from 'clsx';
 import { theme } from '../Theme';
 
 const useStyles = makeStyles((theme) => ({
@@ -15,10 +16,12 @@ const useStyles = makeStyles((theme) => ({
     bottom: theme.spacing(2),
     right: theme.spacing(2),
     display: 'flex',
+    minHeight: '100vh',
   },
   main: {
-    width: '100%',
-    minHeight: "100vh"
+    flex: 1,
+    padding: theme.spacing(6, 4),
+    background: '#eaeff1',
   },
   box: {
     padding: 0,
@@ -49,7 +52,7 @@ function Page(props) {
           <AppBarHidden handleDrawerToggle={handleDrawerToggle} />
           <div id={anchorScrollToTop} />
           {/** https://material-ui.com/system/flexbox/ */}
-          <Box className={classes.box+' '+classes.boxMain}>
+          <Box className={clsx(classes.box, classes.boxMain)}>
             <Box p={1} flexGrow={1} className={classes.box}>
               <Content content={children}/>
             </Box>

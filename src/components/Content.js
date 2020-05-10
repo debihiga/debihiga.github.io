@@ -7,8 +7,6 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     direction: "row",
-    backgroundColor: '#282A36',
-    color: '#E7EAEF',
     height: "100%",
     spacing: 0
   },
