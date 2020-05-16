@@ -1,11 +1,17 @@
 import ReverseEngineeringHuaweiSmartAXMT882 from '../pages/ReverseEngineeringHuaweiSmartAXMT882/ReverseEngineeringHuaweiSmartAXMT882';
 import Sample from '../pages/Sample';
 import UnderConstruction from '../pages/UnderConstruction';
+import Home from '../pages/home/Home';
 
 /** 
  * https://medium.com/gammastack/making-a-nested-sidebar-menu-in-react-f8595031995e
  * https://www.smartwebsolutions.org/replace-space-with-hyphen/ */
 export const pages = [
+  {
+    name: "Home",
+    url: "/",
+    component: Home,
+  },
   {
     name: "Reverse Engineering: Huawei SmartAX MT882",
     url: "/reverse-engineering-huawei-smartax-mt882",
