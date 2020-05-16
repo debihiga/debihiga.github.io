@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '../../components/Button';
 import Typography from '../../components/Typography';
 import HeroLayout from './HeroLayout';
+var ReactRotatingText = require('react-rotating-text');
 
 const backgroundImage = '/images/hero.jpg';
 
@@ -16,9 +17,10 @@ const styles = (theme) => ({
   button: {
     minWidth: 200,
   },
-  h5: {
+  subtitle: {
     marginBottom: theme.spacing(4),
     marginTop: theme.spacing(4),
+    fontFamily: "Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace",
     [theme.breakpoints.up('sm')]: {
       marginTop: theme.spacing(10),
     },
@@ -38,8 +40,8 @@ function Hero(props) {
       <Typography color="inherit" align="center" variant="h2" marked="center">
         Hey, hello! I'm Debi :)
       </Typography>
-      <Typography color="inherit" align="center" variant="h5" className={classes.h5}>
-        /* I'm a passionate full-stack software engineer */
+      <Typography color="inherit" align="center" variant="h5" className={classes.subtitle}>
+        /* I'm a passionate <ReactRotatingText items={['Java', 'React', 'Python']} /> software engineer */
       </Typography>
       <Button
         color="secondary"
