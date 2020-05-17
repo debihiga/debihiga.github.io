@@ -1,5 +1,6 @@
 import React from 'react';
-import Hero from './Hero';
+import Hero from './hero/Hero';
+import About from './about/About';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -11,7 +12,8 @@ function Home(props) {
 
     return (
         <React.Fragment>
-            <Hero></Hero>
+            <Hero/>
+            <About/>
         </React.Fragment>
     );
 }

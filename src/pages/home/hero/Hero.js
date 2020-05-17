@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Button from '../../components/Button';
-import Typography from '../../components/Typography';
+import Button from '../../../components/Button';
+import Typography from '../../../components/Typography';
 import HeroLayout from './HeroLayout';
 var ReactRotatingText = require('react-rotating-text');
 
