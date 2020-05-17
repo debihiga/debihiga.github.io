@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import Typography from '../../../components/Typography';
+import Typography from 'components/Typography';
 import CollapsibleTableSkillSet from './CollapsibleTableSkillSet';
 import Section from '../Section.js';
 import { anchorAbout } from 'constants/Common';
+import Biography from './Biography';
 
 const styles = (theme) => ({
   root: {
@@ -35,6 +36,9 @@ const styles = (theme) => ({
   },
   description: {
     textAlign: 'center',
+  },
+  subSection: {
+    marginTop: theme.spacing(5),
   }
 });
 
@@ -45,31 +49,9 @@ function About(props) {
     <Section title="About Me" anchor={anchorAbout}>
         {/** Grid spacing=5(x4px) between grids */}
         <Grid container spacing={5}>
-          {/** About */}
-          <Grid item xs={12} md={6}>
-            <div className={classes.item}>
-              {/*
-              <img
-                className={classes.image}
-                src="/static/themes/onepirate/productValues1.svg"
-                alt="suitcase"
-              />
-              */}
-              <Typography variant="h6" className={classes.title}>
-                ABOUT ME
-              </Typography>
-              <Typography variant="body" className={classes.description}>
-                {"I'm a "}<b>{"Full-Stack Software Engineer"}</b>{" for J.P.Morgan Chase & Co. in Buenos Aires, Argentina."}
-                <br/>
-                <br/>
-                {"I've graduated as an "}<b>{"Electronics Engineer"}</b>{" at UTN."}
-                <br/>
-                <br/>
-                {"For me, "}<i>{"programming is an art form."}</i>
-                <br/>
-                {"That's why, I'm very detail oriented and I love to deliver neat, clean and good quality code."}
-              </Typography>
-            </div>
+          {/** Biography */}
+          <Grid item xs={12} md={6} className={classes.subSection}>
+            <Biography/>
           </Grid>
           {/** Skill set */}
           <Grid item xs={12} md={6}>

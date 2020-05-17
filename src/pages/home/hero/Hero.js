@@ -47,7 +47,10 @@ function Hero(props) {
         /* I'm a passionate
       </Typography>
       <Typography color="inherit" align="center" variant="h5" className={classes.subtitle}>
-        <ReactRotatingText items={['Java', 'React', 'Python']} />software engineer */
+        <ReactRotatingText items={['Java', 'React', 'Python']} />
+      </Typography>
+      <Typography color="inherit" align="center" variant="h5" className={classes.subtitle}>
+        Software Engineer */
       </Typography>
       <Button
         color="secondary"
