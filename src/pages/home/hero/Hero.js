@@ -4,6 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '../../../components/Button';
 import Typography from '../../../components/Typography';
 import HeroLayout from './HeroLayout';
+import { anchorAbout } from 'constants/Common';
+
 var ReactRotatingText = require('react-rotating-text');
 
 const backgroundImage = '/images/hero.jpg';
@@ -31,14 +33,22 @@ const styles = (theme) => ({
 });
 
 function Hero(props) {
+
   const { classes } = props;
+
+  const handleClick = (event) => {
+    const anchor = (event.target.ownerDocument || document).querySelector('#' + anchorAbout);
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
 
   return (
     <HeroLayout backgroundClassName={classes.background}>
       {/* Increase the network loading priority of the background image. */}
       <img style={{ display: 'none' }} src={backgroundImage} alt="increase priority" />
       <Typography color="inherit" align="center" variant="h2" marked="center">
-        Hey, hello! I'm Debi :)
+        Hey, hello! I'm <b>Debi Higa</b> :)
       </Typography>
       <Typography color="inherit" align="center" variant="h5" className={classes.subtitle}>
         /* I'm a passionate <ReactRotatingText items={['Java', 'React', 'Python']} /> software engineer */
@@ -49,7 +59,7 @@ function Hero(props) {
         size="large"
         className={classes.button}
         component="a"
-        href="/premium-themes/onepirate/sign-up/"
+        onClick={handleClick}
       >
         View my work
       </Button>

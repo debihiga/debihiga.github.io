@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '../../../components/Typography';
 import CollapsibleTableSkillSet from './CollapsibleTableSkillSet';
+import Section from '../Section.js';
 
 const styles = (theme) => ({
   root: {
@@ -31,11 +32,6 @@ const styles = (theme) => ({
     marginTop: theme.spacing(5),
     marginBottom: theme.spacing(5),
   },
-  curvyLines: {
-    pointerEvents: 'none',
-    position: 'absolute',
-    top: -180,
-  },
   description: {
     textAlign: 'center',
   }
@@ -45,14 +41,7 @@ function About(props) {
   const { classes } = props;
 
   return (
-    <section className={classes.root}>
-      <Container className={classes.container}>
-        {/** Background image */}
-        <img
-          src="/static/themes/onepirate/productCurvyLines.png" 
-          className={classes.curvyLines}
-          alt="curvy lines"
-        />
+    <Section id="about" title="About Me">
         {/** Grid spacing=5(x4px) between grids */}
         <Grid container spacing={5}>
             {/** About */}
@@ -91,8 +80,7 @@ function About(props) {
             </div>
           </Grid>
         </Grid>
-      </Container>
-    </section>
+    </Section>
   );
 }
 
