@@ -6,6 +6,7 @@ import Container from '@material-ui/core/Container';
 import Typography from '../../../components/Typography';
 import CollapsibleTableSkillSet from './CollapsibleTableSkillSet';
 import Section from '../Section.js';
+import { anchorAbout } from 'constants/Common';
 
 const styles = (theme) => ({
   root: {
@@ -41,12 +42,12 @@ function About(props) {
   const { classes } = props;
 
   return (
-    <Section id="about" title="About Me">
+    <Section title="About Me">
         {/** Grid spacing=5(x4px) between grids */}
         <Grid container spacing={5}>
-            {/** About */}
+          {/** About */}
           <Grid item xs={12} md={6}>
-            <div className={classes.item}>
+            <div id={anchorAbout} className={classes.item}>
               {/*
               <img
                 className={classes.image}

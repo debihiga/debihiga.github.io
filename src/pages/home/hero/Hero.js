@@ -5,6 +5,7 @@ import Button from '../../../components/Button';
 import Typography from '../../../components/Typography';
 import HeroLayout from './HeroLayout';
 import { anchorAbout } from 'constants/Common';
+import { scrollToAnchor } from 'components/ScrollToAnchor';
 
 var ReactRotatingText = require('react-rotating-text');
 
@@ -36,13 +37,6 @@ function Hero(props) {
 
   const { classes } = props;
 
-  const handleClick = (event) => {
-    const anchor = (event.target.ownerDocument || document).querySelector('#' + anchorAbout);
-    if (anchor) {
-      anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  };
-
   return (
     <HeroLayout backgroundClassName={classes.background}>
       {/* Increase the network loading priority of the background image. */}
@@ -59,7 +53,7 @@ function Hero(props) {
         size="large"
         className={classes.button}
         component="a"
-        onClick={handleClick}
+        onClick={() => scrollToAnchor(anchorAbout)}
       >
         View my work
       </Button>
