@@ -42,12 +42,12 @@ function About(props) {
   const { classes } = props;
 
   return (
-    <Section title="About Me">
+    <Section title="About Me" anchor={anchorAbout}>
         {/** Grid spacing=5(x4px) between grids */}
         <Grid container spacing={5}>
           {/** About */}
           <Grid item xs={12} md={6}>
-            <div id={anchorAbout} className={classes.item}>
+            <div className={classes.item}>
               {/*
               <img
                 className={classes.image}

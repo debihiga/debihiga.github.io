@@ -17,16 +17,15 @@ const styles = (theme) => ({
     backgroundColor: '#7fc7d9', // Average color of the background image.
     backgroundPosition: 'center',
   },
-  button: {
-    minWidth: 200,
+  title: {
+    marginBottom: theme.spacing(4),
   },
   subtitle: {
-    marginBottom: theme.spacing(4),
-    marginTop: theme.spacing(4),
     fontFamily: "Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace",
-    [theme.breakpoints.up('sm')]: {
-      marginTop: theme.spacing(10),
-    },
+  },
+  button: {
+    minWidth: 200,
+    marginTop: theme.spacing(8),
   },
   more: {
     marginTop: theme.spacing(2),
@@ -41,11 +40,14 @@ function Hero(props) {
     <HeroLayout backgroundClassName={classes.background}>
       {/* Increase the network loading priority of the background image. */}
       <img style={{ display: 'none' }} src={backgroundImage} alt="increase priority" />
-      <Typography color="inherit" align="center" variant="h2" marked="center">
+      <Typography color="inherit" align="center" variant="h2" marked="center" className={classes.title}>
         Hey, hello! I'm <b>Debi Higa</b> :)
       </Typography>
       <Typography color="inherit" align="center" variant="h5" className={classes.subtitle}>
-        /* I'm a passionate <ReactRotatingText items={['Java', 'React', 'Python']} /> software engineer */
+        /* I'm a passionate
+      </Typography>
+      <Typography color="inherit" align="center" variant="h5" className={classes.subtitle}>
+        <ReactRotatingText items={['Java', 'React', 'Python']} />software engineer */
       </Typography>
       <Button
         color="secondary"

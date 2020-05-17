@@ -16,14 +16,26 @@ const styles = (theme) => ({
     title: {
       paddingBottom: theme.spacing(4),
     },
+    anchor: {
+      position: 'relative',
+      '& a' :{
+        position: 'absolute',
+        top:'220px'
+       },      
+    },
 });
 
 function Section(props) {
 
-  const { classes, backgroundImagePath, title, children } = props;
+  const { classes, backgroundImagePath, anchor, title, children } = props;
 
   return (
     <Container className={classes.root} component="section">
+      {/** Anchor */}
+      {/** https://dev.to/gajus/offsetting-named-anchor-and-scrollintoview-position-7jm */}
+      <div className={classes.anchor}>
+        <a id={anchor}/>  
+      </div>
       {/** Background image */}
       <img
         src={backgroundImagePath}
