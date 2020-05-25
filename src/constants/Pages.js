@@ -1,7 +1,7 @@
 import ReverseEngineeringHuaweiSmartAXMT882 from '../pages/ReverseEngineeringHuaweiSmartAXMT882/ReverseEngineeringHuaweiSmartAXMT882';
-import Sample from '../pages/Sample';
-import UnderConstruction from '../pages/UnderConstruction';
-import Home from '../pages/home/Home';
+import Sample from 'pages/Sample';
+import UnderConstruction from 'pages/UnderConstruction';
+import Home from 'views/home/Home';
 
 /** 
  * https://medium.com/gammastack/making-a-nested-sidebar-menu-in-react-f8595031995e

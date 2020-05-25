@@ -1,11 +1,7 @@
-import './App.css';
-
-import { HashRouter, Route, Switch } from 'react-router-dom';
-
-import Page from './components/Page';
 import React from 'react';
-import { pages } from './constants/Pages';
-import Home from './pages/home/Home';
+import { Route } from 'react-router-dom';
+import './App.css';
+import Home from 'views/home/Home';
 
 function getRoutes(pages) {
   let routes = [];

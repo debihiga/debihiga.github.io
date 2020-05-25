@@ -1,28 +1,29 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from 'components/Typography';
 import Avatar from '@material-ui/core/Avatar';
 
-const styles = (theme) => ({
-    root: {
-        textAlign: 'center',
-    },
-    photo: {
-        margin: 'auto', /** Center image */
-        width: theme.spacing(30),
-        height: theme.spacing(30),
-    },
-});
+const photo = 'images/photo.jpg';
 
-function Biography(props) {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    textAlign: 'center',
+  },
+  photo: {
+    margin: 'auto', /** Center image */
+    width: theme.spacing(30),
+    height: theme.spacing(30),
+  },
+}));
 
-  const { classes } = props;
+export default function Biography(props) {
+
+  const classes = useStyles();
 
   return (
     <Container className={classes.root} component="section">
-        <Avatar src="images/photo.jpg" className={classes.photo} />
+        <Avatar className={classes.photo} src={photo} />
         <Typography variant="body">
             <br/>
             <br/>
@@ -39,9 +40,3 @@ function Biography(props) {
     </Container>
   );
 }
-
-Biography.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(Biography);

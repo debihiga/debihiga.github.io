@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-const styles = (theme) => ({
+const backgroundImage = '/images/hero.jpg';
+
+const useStyles = makeStyles((theme) => ({
   root: {
     color: theme.palette.common.white,
     position: 'relative',
@@ -36,32 +37,31 @@ const styles = (theme) => ({
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     zIndex: -2,
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundColor: '#7fc7d9', // Average color of the background image.
+    backgroundPosition: 'center',
   },
-  arrowDown: {
-    position: 'absolute',
-    bottom: theme.spacing(4),
-  },
-});
+}));
 
-function HeroLayout(props) {
+export default function HeroLayout(props) {
 
-  const { backgroundClassName, children, classes } = props;
+  const { children } = props;
+
+  const classes = useStyles();
 
   return (
     <section className={classes.root}>
       <Container className={classes.container}>
-        {children}
+        {/** Background image */}
         <div className={classes.backdrop} /> {/** Darkens image */}
-        <div className={clsx(classes.background, backgroundClassName)} />
+        <div className={classes.background} />
+        {/** Content */}
+        {children}
       </Container>
     </section>
   );
 }
 
 HeroLayout.propTypes = {
-  backgroundClassName: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
-  classes: PropTypes.object.isRequired,
 };
-
-export default withStyles(styles)(HeroLayout);

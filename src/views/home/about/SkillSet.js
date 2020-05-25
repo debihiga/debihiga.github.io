@@ -1,11 +1,26 @@
-import { Button, Card, CardActions, CardContent, CardHeader, Divider, ListItemAvatar } from '@material-ui/core';
+import { Card, CardContent, CardHeader, Divider, ListItemAvatar } from '@material-ui/core';
+import Container from '@material-ui/core/Container';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import { withStyles } from '@material-ui/core/styles';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import { default as React } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import React from 'react';
 import ReadMoreAndLess from 'react-read-more-less';
+
+const useStyles = makeStyles((theme) => ({
+  item: {
+    alignItems: 'start',
+    padding: theme.spacing(0.5),
+  },
+  image: {
+    height: theme.spacing(5),
+    width: theme.spacing(5),
+    paddingTop: theme.spacing(1),
+  },
+  more: {
+    textAlign: 'right',
+  }
+}));
 
 function createData(logoPath, name, description) {
   return {
@@ -38,70 +53,61 @@ const skills = [
   createData("/images/logos/android.jpg", "Android",
     "For one of my previous jobs, I developed two Android applications that are currently in Google Play Store."),
   createData("/images/logos/reveng.jpg", "Reverse Engineering",
-    "During an internship, I have done a firmware reverse engineer, found 2 vulnerabilities and presented them in the ekoparty Security Conference."),
+    "During an internship, I have done a firmware reverse engineering research, found 2 vulnerabilities and presented them in the ekoparty Security Conference."),
   createData("/images/logos/electronics.jpg", "Electronics",
     "On my previous jobs, I have developed embedded electronic systems in C connecting with sensors like GPS, ultrasounds, accelerometers, gyroscopes & magnetometers. " +
     "I have experience in Raspberry, Beaglebone and Andruino, too."),
   createData("/images/logos/others.jpg", "Others",
-    "In my previous jobs, I have also developed entire projects in C++ and PHP on my own. " +
+    "In my previous jobs, I have also developed entire projects in C++ and PHP. " +
     "I have also built small applications in Matlab."),
 ];
 
-const styles = (theme) => ({
-  item: {
-    alignItems: 'start',
-  },
-  image: {
-    height: theme.spacing(5),
-    width: theme.spacing(5),
-    paddingTop: theme.spacing(1),
-  },
-  more: {
-    textAlign: 'right',
-  }
-});
+export default function SkillSet(props) {
 
-function SkillList(props) {
-
-  const { classes } = props;
+  const classes = useStyles();
 
   return (
-    <Card >
-      <CardHeader title="Skills" />
-      <Divider />
-      <CardContent>
-        <List>
-          {skills.map((skill, i) => (
-            <ListItem
-              className={classes.item}
-              divider={i < skill.length - 1}
-              key={skill.id}
-            >
-              <ListItemAvatar>
-                <img
-                  alt="Skill"
-                  className={classes.image}
-                  src={skill.logoPath}
+    <Container className={classes.root} component="section">
+      <Card >
+        {/** Header */}
+        <CardHeader title="Skills" />
+        <Divider />
+        {/** List */}
+        <CardContent>
+          <List>
+            {/** Skill */}
+            {skills.map((skill, i) => (
+              <ListItem
+                className={classes.item}
+                divider={i < skill.length - 1}
+                key={skill.id}
+              >
+                <ListItemAvatar>
+                  <img
+                    alt="Skill"
+                    className={classes.image}
+                    src={skill.logoPath}
+                  />
+                </ListItemAvatar>
+                {/** Description must be pure string in order to
+                 * ReadMoreAndLess to work properly. 
+                 * https://github.com/Thamodaran/react-read-more-less/blob/master/src/index.js */}
+                <ListItemText
+                  primary={skill.name}
+                  secondary={
+                    <ReadMoreAndLess
+                      charLimit={100}
+                      readMoreText=" Read more"
+                      readLessText=" Read less"
+                    >
+                      {skill.description}
+                    </ReadMoreAndLess>}
                 />
-              </ListItemAvatar>
-              <ListItemText
-                primary={skill.name}
-                secondary={
-                  <ReadMoreAndLess
-                    className="read-more-content"
-                    charLimit={100}
-                    readMoreText=" Read more"
-                    readLessText=" Read less"
-                  >
-                    {skill.description}
-                  </ReadMoreAndLess>}
-              />
-            </ListItem>
-          ))}
-        </List>
-      </CardContent>
-    </Card>
+              </ListItem>
+            ))}
+          </List>
+        </CardContent>
+      </Card>
+    </Container>
   );
 }
-
-export default withStyles(styles)(SkillList);
