@@ -1,12 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { withStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
+import React from 'react';
 import Typography from '../../components/Typography';
 
 const styles = (theme) => ({
     root: {
-      marginTop: theme.spacing(14),
+      paddingTop: theme.spacing(14),
     },
     backgroundImage: {
       pointerEvents: 'none',
@@ -27,10 +28,10 @@ const styles = (theme) => ({
 
 function Section(props) {
 
-  const { classes, backgroundImagePath, anchor, title, children } = props;
+  const { className, classes, backgroundImagePath, anchor, title, children } = props;
 
   return (
-    <Container className={classes.root} component="section">
+    <Container className={clsx(classes.root, className)} component="section">
       {/** Anchor */}
       {/** https://dev.to/gajus/offsetting-named-anchor-and-scrollintoview-position-7jm */}
       <div className={classes.anchor}>

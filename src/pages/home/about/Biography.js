@@ -11,8 +11,8 @@ const styles = (theme) => ({
     },
     photo: {
         margin: 'auto', /** Center image */
-        width: theme.spacing(25),
-        height: theme.spacing(25),
+        width: theme.spacing(30),
+        height: theme.spacing(30),
     },
 });
 
@@ -22,7 +22,7 @@ function Biography(props) {
 
   return (
     <Container className={classes.root} component="section">
-        <Avatar alt="Remy Sharp" src="images/photo.jpg" className={classes.photo} />
+        <Avatar src="images/photo.jpg" className={classes.photo} />
         <Typography variant="body">
             <br/>
             <br/>
