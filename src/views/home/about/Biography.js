@@ -24,7 +24,7 @@ export default function Biography(props) {
   return (
     <Container className={classes.root} component="section">
         <Avatar className={classes.photo} src={photo} />
-        <Typography variant="body">
+        <Typography variant="body1">
             <br/>
             <br/>
             {"I'm a "}<b>{"Full-Stack Software Engineer"}</b>{" for J.P.Morgan Chase & Co. in Buenos Aires, Argentina."}

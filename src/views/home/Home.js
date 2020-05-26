@@ -3,7 +3,6 @@ import About from './about/About';
 import Footer from './footer/Footer';
 import Hero from './hero/Hero';
 import ButtonScrollTop from 'components/ButtonScrollTop';
-import { anchorAbout } from 'constants/Common';
 
 export default function Home(props) {
 
@@ -12,7 +11,7 @@ export default function Home(props) {
             <Hero />
             <About />
             <Footer />
-            <ButtonScrollTop anchor={anchorAbout} {...props} />
+            <ButtonScrollTop />
         </React.Fragment>
     );
 }

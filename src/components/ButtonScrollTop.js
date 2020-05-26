@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 function ButtonScrollTop(props) {
 
-  const { window, anchor } = props;
+  const { window } = props;
   
   const classes = useStyles();
   
@@ -31,7 +31,7 @@ function ButtonScrollTop(props) {
 
   return (
     <Zoom in={trigger}>
-      <div onClick={() => scrollToAnchor(anchor)} role="presentation" className={classes.btn}>
+      <div onClick={() => scrollToAnchor()} role="presentation" className={classes.btn}>
         <Fab color="secondary" size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
         </Fab>
