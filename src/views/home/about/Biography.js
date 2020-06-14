@@ -35,7 +35,7 @@ export default function Biography(props) {
             <br/>
             {"For me, "}<i>{"programming is an art form."}</i>
             <br/>
-            {"That's why, I'm very detail oriented and I love to deliver neat, clean and good quality code."}
+            {"That's why I'm very detail-oriented and I love to deliver clean and good quality code."}
         </Typography>
     </Container>
   );
