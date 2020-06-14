@@ -13,25 +13,27 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         justifyContent: 'space-between', /** https://stackoverflow.com/questions/57818778/how-to-make-material-ui-cardactions-always-stick-to-the-bottom-of-parent */
         alignItems: 'center',
-        padding: theme.spacing(0, 4),
+        textAlign: 'center',
+        padding: theme.spacing(0, 2),
         height: '100%',
     },
     content: {
         padding: 0,
     },
     image: {
-        marginTop: theme.spacing(4),
+        marginTop: theme.spacing(2),
+        width: '100%',
         maxWidth: '100%', 
         maxHeight: '100%',
     },
     title: {
-        marginTop: theme.spacing(4),
+        marginTop: theme.spacing(2),
         textTransform: 'uppercase',
         width: '100%',
         textAlign: 'center',
     },
     subtitle: {
-        marginBottom: theme.spacing(4),
+        marginBottom: theme.spacing(2),
         width: '100%',
         textAlign: 'center',
         fontWeight: 400,
@@ -51,7 +53,7 @@ export default function BlogEntry(props) {
   const { image, title, subtitle, description, link } = props;
 
   return (
-    <Grid item xs={12} md={4}>
+    <Grid item xs={12} md={3}>
         <Card className={classes.card} >
             <CardContent className={classes.content} >
                 {
@@ -68,7 +70,7 @@ export default function BlogEntry(props) {
                 <Typography variant="h6" className={classes.subtitle}>
                     {subtitle}
                 </Typography>
-                <Typography variant="body">
+                <Typography variant="body" align='left' >
                     {description}
                 </Typography>
             </CardContent>

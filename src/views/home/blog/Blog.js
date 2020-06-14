@@ -48,6 +48,45 @@ export default function Blog(props) {
             link="https://debihiga.wordpress.com/autoestereogramas/"
             >
           </BlogEntry>
+          <BlogEntry
+            image="/images/blog/mqtt/mqtt.png"
+            title="MQTT"
+            description=
+            {
+                ["Learn how to use MQTT: ",
+                <ul>
+                    <li>In command line, using Mosquitto.</li>
+                    <li>In Raspberry Pi, using Python and Paho.</li>
+                    <li>In Linux Desktops, using C and C++.</li>
+                </ul>
+            ]
+            }
+            link="https://debihiga.wordpress.com/using-mqtt-in-python-c-and-c-for-embedded-and-non-embedded-systems/"
+            >
+          </BlogEntry>
+          <BlogEntry
+            image="/images/blog/beaglebone-black/beaglebone-black.jpg"
+            title="Troubleshooting"
+            subtitle="Beaglebone Black"
+            description="I have been struggling over and over again with the same problems with the BBB (ಥ﹏ಥ) so I built a list with the most common issues I have been facing, with their solutions."
+            link="https://debihiga.wordpress.com/beaglebone-black-troubleshooting/"
+            >
+          </BlogEntry>
+          <BlogEntry
+            image="/images/blog/git/git.jpg"
+            title="Cheatsheet"
+            subtitle="Git"
+            description="Here is a simple guide to Git for beginners and a list of the most common commands used daily (which I always forget (╥﹏╥) and that's why I wrote this page)"
+            link="https://debihiga.wordpress.com/git-cheatsheet/"
+            >
+          </BlogEntry>
+          <BlogEntry
+            image="/images/blog/utn-projects/electronics.jpg"
+            title="Group university projects"
+            description="I am an Electronics Engineer, graduated from UTN BA. During that time, I had the opportunity to meet wonderful people, to work in groups, and to experiment with lots of different things. Here are some of them!"
+            link="https://debihiga.wordpress.com/proyectos-universitarios-grupales/"
+            >
+          </BlogEntry>
         </Grid>
     </Section>
   );
