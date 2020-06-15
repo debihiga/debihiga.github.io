@@ -34,12 +34,11 @@ function createData(logoPath, name, description) {
 const skills = [
   createData("/images/logos/java.jpg", "Java",
     <span>
-      Backend developer of banking and 24/7 global cloud applications,
+      Backend developer of banking and 24/7 service global cloud applications,
       using Spring Boot, Drools, Maven, Jules, Jenkins, REST, and WebSocket services. 
       Collaborated in Agile cross teams from the USA, UK, India, and Argentina. 
-      Built from scratch, and completely by me, image processing projects for object detection and recognition.
       Responsible for the development, deployment, and support of each application. 
-      <a target="_blank" href="https://leetcode.com/debihiga/" >
+      Also a <a target="_blank" href="https://leetcode.com/debihiga/" >
       LeetCode 
       </a> coding challenges lover &lt;3.
     </span>),
@@ -47,7 +46,7 @@ const skills = [
     <span>
       Frontend developer in React, using Material UI and Redux. 
       Focused on our costumers, their needs, and the enhancement of the UX side of our applications.
-      Ah! Also, this website is built in React :)
+      Ah! This website is built in React :)
     </span>),
   createData("/images/logos/python.jpg", "Python",
     <span>
@@ -70,8 +69,8 @@ const skills = [
     </span>),
   createData("/images/logos/android.jpg", "Android",
     <span>
-      Developed from scratch and completely by me, 
-      Android applications that some of them are currently in Google Play Store:
+      Developed Android applications from scratch and completely done by me. 
+      Some of them are currently in Google Play Store:
       <ul>
         <li>
           <a target="_blank" href="https://play.google.com/store/apps/details?id=com.ingesys.controlremotoba90ip" >
@@ -92,7 +91,9 @@ const skills = [
     </span>),
   createData("/images/logos/reveng.jpg", "Reverse Engineering",
     <span>
-      During an internship, I have done a firmware reverse engineering research, found 2 vulnerabilities, and presented them in the ekoparty Security Conference.
+      During an internship, I have done a firmware reverse engineering research, found 2 vulnerabilities, and presented them in the ekoparty Security Conference. <a target="_blank" href="https://debihiga.wordpress.com/reverse-engineering-huawei-smartax-mt882/" >
+      Here 
+      </a> I have published part of that great experience.
     </span>),
   createData("/images/logos/electronics.jpg", "Electronics",
     <span>
@@ -102,7 +103,7 @@ const skills = [
     </span>),
   createData("/images/logos/others.jpg", "Others",
     <span>
-      In my first jobs, I have also developed from scratch and completely by me, projects in C++ and PHP. 
+      In my first jobs, I have also developed from the beginning and on my own, projects in C++ and PHP. 
       I have also built small applications in Matlab.
     </span>),
 ];
