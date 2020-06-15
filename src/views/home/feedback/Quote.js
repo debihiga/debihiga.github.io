@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
             position: 'absolute',
             bottom: '-110px',
             lineHeight: '100px',
-            right: '-32px',
+            right: '-16px',
             fontSize: '25em',
             fontWeight: 'normal',
             opacity: '0.15',
