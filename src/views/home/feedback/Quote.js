@@ -6,6 +6,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions  from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
 
 /** From: https://codemyui.com/pure-css-material-quotation-cards/ */
 
@@ -18,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
         overflow: 'hidden',
         minHeight: '120px',
         textAlign: 'center',
+        width: '70%',
+        margin: 'auto', /** align center horizontally */
         '& p': {
             fontSize: '1rem',
             lineHeight: '1.5',
@@ -67,6 +70,6 @@ export default function Quote(props) {
         <cite>
             {cite}
         </cite>
-    </blockquote>
+    </blockquote>        
   );
 }
