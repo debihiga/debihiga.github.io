@@ -8,9 +8,6 @@ const useStyles = makeStyles((theme) => ({
   container: {
     backgroundColor: '#F4F6F8',
   },
-  subSection: {
-    marginTop: theme.spacing(5),
-  }
 }));
 
 export default function Blog(props) {
