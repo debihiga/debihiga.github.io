@@ -30,12 +30,15 @@ export default function Biography(props) {
             {"I'm a "}<b>{"Full-Stack Software Engineer"}</b>{" for J.P.Morgan Chase & Co. in Buenos Aires, Argentina."}
             <br/>
             <br/>
-            {"I've graduated as an "}<b>{"Electronics Engineer"}</b>{" at UTN."}
+            {"I've graduated in "}<b>{"Electronics Engineering"}</b>{" at Universidad Tecnologica Nacional de Buenos Aires (UTN BA) and I found my passion for programming. Therefore, I am always eager to learn and explore new technologies."}
             <br/>
             <br/>
             {"For me, "}<i>{"programming is an art form."}</i>
             <br/>
             {"That's why I'm very detail-oriented and I love to deliver clean and good quality code."}
+            <br/>
+            <br/>
+            {"I focus on striving for the highest standard of technical excellence in every task and putting dedication above all else. My goals also include giving exceptional service by helping customers directly, helping co-workers get projects finished on time, and helping teams keep organized and productive. I am well-recognized for being meticulous, hardworking, and proactive."}
         </Typography>
     </Container>
   );
